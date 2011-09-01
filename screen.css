@@ -1,0 +1,75 @@
+/* General classes */
+.hidden { display: none; }
+.show { display: block; }
+.inline { display: inline; }
+
+.lfloat { float: left; }
+.rfloat { float: right; }
+.clear { clear: both; }
+
+.hand {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.money { color: #76EE00; }
+.item_display { color: #D2691E; }
+
+
+/* Global */
+body {
+  margin: 25px;
+  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+.rating .positive { color: #228B22; }
+.rating .negative { color: #CD2626; }
+.rating img {
+  height: 12px;
+  padding-left: 1px;
+  width: 9px;
+}
+
+
+/* Buying */
+div.buy_item { float: left; }
+div.buy_item img.img {
+  float: left;
+  height: 128px;
+  width: 128px;
+}
+div.buy_item .soldby {
+  color: gray;
+  font-variant: small-caps;
+  padding-left: 5px;
+  text-transform: lowercase;
+}
+div.buy_item .details {
+  float: left;
+  margin-left: 20px;
+}
+div.buy_item h2, div.buy_item h3 { margin-top: 0px; }
+div.buy_item h2 { margin-bottom: 0px; max-width:380px }
+div.buy_item h3 { padding-left: 5px; }
+div.buy_item .rating { font-size: 14px; }
+div.buy_item .confirm {
+  border: 0.3em solid #B0B0B0;
+  float: left;
+  font-size: 1.5em;
+  height: 1.5em;
+  margin: 1.25em 0 0 3em;
+  padding: 0.5em;
+  text-align: center;
+  width: 3em;
+}
+div.buy_item .confirm:hover {
+  background-color: #F0F0F0;
+  cursor: pointer;
+  cursor: hand;
+}
+div.buy_item.notfirst {
+  border-left: 3px dashed grey;
+  margin-left: 30px;
+  padding-left: 30px;
+}
