@@ -135,7 +135,7 @@ function runAuthorityReviewLocation()
   item2['reviewer'] = {name: 'Twitter', rating: 'A+'};
   item2.item['marketplace'] = 'Amazon'
   
-  displayItems('authority.reviewlocation', item1, item2);
+  displayItems('authority.metareview', item1, item2);
 }
 
 // Writing Quality A, primary
@@ -210,6 +210,30 @@ function runPriorRelationshipMetareview()
   displayItems('priorrelationship.metareview', item1, item2);
 }
 
+// Public Relation A, primary
+function runPublicRelationPrimary()
+{
+  var item1 = getRandomItem();
+  var item2 = clone(item1);
+  
+  item1.seller['ratings'] = 170;
+  item2.seller['ratings'] = 5;
+  
+  displayItems('publicrelation.primary', item1, item2);
+}
+
+// Public Relation B, metareview
+function runPublicRelationMetareview()
+{
+  var item1 = getRandomItem();
+  var item2 = clone(item1);
+  
+  item1['reviewer'] = {rating: 'A+', name: 'expert reviewer', meta: 100};
+  item2['reviewer'] = {rating: 'A+', name: 'anonymous', meta: 2};
+  
+  displayItems('publicrelation.metareview', item1, item2);
+}
+
 
 var mockups = {
   'location.primary': runLocationPrimary,
@@ -219,7 +243,7 @@ var mockups = {
   'aggregate.metareview': runAggregateMetareview,
   
   'authority.primary': runAuthorityPrimary,
-  'authority.reviewlocation': runAuthorityReviewLocation,
+  'authority.metareview': runAuthorityReviewLocation,
   
   'writingquality.primary': runWritingQualityPrimary,
   'writingquality.metareview': runWritingQualityMetareview,
@@ -229,6 +253,9 @@ var mockups = {
   
   'priorrelationship.primary': runPriorRelationshipPrimary,
   'priorrelationship.metareview': runPriorRelationshipMetareview,
+  
+  'publicrelation.primary': runPublicRelationPrimary,
+  'publicrelation.metareview': runPublicRelationMetareview,
 };
 var num_mockups = 0;
 var ready = 0;
