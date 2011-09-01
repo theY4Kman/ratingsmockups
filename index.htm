@@ -32,11 +32,13 @@
           
           go.addEventListener('click', function()
             {
-              window.frames[0].location.hash = '#' + list.value;
+              window.frames[0].runMockup();
               
               if (last != list.value)
-                window.frames[0].runMockup();
-              last = list.value;
+              {
+                last = list.value;
+                window.frames[0].location.hash = '#' + list.value;
+              }
             });
         });
     </script>

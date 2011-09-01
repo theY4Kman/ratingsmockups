@@ -234,6 +234,30 @@ function runPublicRelationMetareview()
   displayItems('publicrelation.metareview', item1, item2);
 }
 
+// External Identifying A, primary
+function runExternalIdentifyingPrimary()
+{
+  var item1 = getRandomItem();
+  var item2 = clone(item1);
+  
+  item1.seller['idents'] = ['(813) 555-1337', '70 South Fifth St.'];
+  item2.seller['idents'] = [];
+  
+  displayItems('externalidentifying.primary', item1, item2);
+}
+
+// External Identifying B, metareview
+function runExternalIdentifyingMetareview()
+{
+  var item1 = getRandomItem();
+  var item2 = clone(item1);
+  
+  item1['review'] = {name: 'tacosupreme', rating: 'A+', idents: ['(813) 555-1337', '70 South Fifth St.']};
+  item2['review'] = {name: 'tacosupreme', rating: 'A+', idents: []};
+  
+  displayItems('externalidentifying.metareview', item1, item2);
+}
+
 
 var mockups = {
   'location.primary': runLocationPrimary,
@@ -256,6 +280,12 @@ var mockups = {
   
   'publicrelation.primary': runPublicRelationPrimary,
   'publicrelation.metareview': runPublicRelationMetareview,
+  
+  'reviewspecificity.primary': undefined,
+  'reviewspecificity.metareview': undefined,
+  
+  'externalidentifying.primary': runExternalIdentifyingPrimary,
+  'externalidentifying.metareview': runExternalIdentifyingMetareview,
 };
 var num_mockups = 0;
 var ready = 0;
@@ -268,17 +298,15 @@ require(['jquery-1.6.2.min.js'], function()
           {
             $.each(mockups, function (name, func)
               {
-                num_mockups++;
                 $.get(name + '.tmpl.htm', {}, function (data)
                   {
+                    num_mockups++;
                     $.template(name, data);
                     templateReady(name);
                   }, 'html')
                 .error(function ()
                   {
-                    var idx = mockups.indexOf(name);
-                    if (idx != -1)
-                      mockups.splice(idx, 1);
+                    delete mockups[name];
                   });
               });
             
