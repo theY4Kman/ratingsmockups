@@ -33,7 +33,11 @@ body {
 
 
 /* Buying */
-div.buy_item { float: left; }
+div.buy_item {
+  float: left;
+  padding: 20px 0;
+  width: 400px;
+}
 div.buy_item img.img {
   float: left;
   height: 128px;
@@ -48,10 +52,18 @@ div.buy_item .soldby {
 div.buy_item .details {
   float: left;
   margin-left: 20px;
+  width: 250px;
 }
 div.buy_item h2, div.buy_item h3 { margin-top: 0px; }
-div.buy_item h2 { margin-bottom: 0px; max-width:380px }
-div.buy_item h3 { padding-left: 5px; }
+div.buy_item h2 {
+  font-size: 1em;
+  margin-bottom: 0px;
+  max-width: 380px;
+}
+div.buy_item h3 {
+  color: #56CE00;
+  padding-left: 5px;
+}
 div.buy_item .rating { font-size: 14px; }
 div.buy_item .confirm {
   border: 0.3em solid #B0B0B0;

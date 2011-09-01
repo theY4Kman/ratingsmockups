@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Ratings Mockups</title>
+    <script type="text/javascript">
+      window.addEventListener('load', function()
+        {
+          var list = document.getElementById('mockups');
+          var go = document.getElementById('go');
+          var mockups = window.frames[0].mockups;
+          var last = undefined;
+          
+          var cur_option = window.frames[0].location.hash.substr(1);
+          
+          for (key in mockups)
+          {
+            var option = document.createElement('option');
+            option.value = key;
+            option.innerHTML = key;
+            
+            if (key == cur_option)
+              option.selected = 'selected';
+            
+            list.appendChild(option);
+          }
+          
+          list.addEventListener('change', function()
+            {
+              window.frames[0].location.hash = '#' + list.value;
+              last = list.value;
+            });
+          
+          go.addEventListener('click', function()
+            {
+              window.frames[0].location.hash = '#' + list.value;
+              
+              if (last != list.value)
+                window.frames[0].runMockup();
+              last = list.value;
+            });
+        });
+    </script>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+  </head>
+  <body>
+    <div>
+      <select id="mockups">
+        <option value="RANDOM">Random</option>
+      </select>
+      <button id="go">GO</button>
+    </div>
+    <iframe width="1000" height="700" src="mockup.htm" id="frame" frameborder="no"></iframe>
+  </body>
+</html>

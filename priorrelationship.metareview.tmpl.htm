@@ -1,0 +1,18 @@
+{{each(i) items}}<div class="buy_item{{if i != 0}} notfirst{{/if}}">
+  <img src="${item.imageurl}" class="img" />
+  <div class="details">
+    <h2>${item.name}</h2>
+    <h3>$${parseFloat(item.price).toFixed(2)}</h3>
+    <span class="soldby">Sold by</span>
+    <br />
+    <span class="seller">${seller.id}</span>
+    <br />
+    <br />
+    <span class="review"><em>${review.rating}</em> Review</span>
+    <br />
+    <span style="font-size: 0.9em; margin-left: 10px;">by a friend</span>{{if review.relationship}}
+    <br />
+    <span class="relationship" style="font-size: 0.8em; margin-left: 10px;"><em>{{html review.relationship}}</em></span>{{/if}}
+  </div>
+  <div class="clear">&nbsp;</div>
+</div>{{/each}}
